@@ -9,9 +9,9 @@
 </head>
 <body>
     <div class="login">
-        <form>
+        <form onreset="change('RESET')" onsubmit="change('SUBMIT')">
             <label for="fullname">Enter Name</label>
-            <input class="text" type="text" id="fullname" required placeholder="Jay Singh" name="name1111">
+            <input class="text" onfocus="change('Focus')" onblur="change('BLUR')" type="text" id="fullname" required placeholder="Jay Singh" name="name1111">
             <br>
             <br>
             <label for="passwd">Enter Passwd</label>
@@ -19,7 +19,7 @@
             <br>
             <br>
             <label for="email">Enter Email</label>
-            <input class="text" id="email" type="email" required placeholder="Jay@gmail.com" name="email">
+            <input class="text" id="email" type="email" oninvalid="change('INVALID MAIL')" required placeholder="Jay@gmail.com" name="email">
             <br>
             <br>
             <label>
@@ -36,8 +36,38 @@
             <label for="radio3">JS</label>
             <input type="radio" id="radio3" name="lang"  value="3">
             <br><br>
+            <label for="range">Select between 0 to 50 (selected: <span id="range_value">20</span>)</label>
+            <br>
+            <input type="range" id="range" min="0" max="50" value="20">
+            <br><br>
+            <label for="profile11">Select a profile</label>
+            <select name="profile" id="profile11">
+                <option value="">a</option>
+                <option value="">b</option>
+                <option value="" selected>c</option>
+                <option value="">d</option>
+                <option value="">e</option>
+            </select>
+            <br><br>
             <input type="submit" value="SUBMIT-1">
+            <input type="reset" value="RESET">
         </form>
     </div>
+
+<script>
+    let range = document.getElementById('range')
+    let range_value = document.getElementById('range_value')
+    range.addEventListener('change',()=> {
+        // console.log(range.value);
+        range_value.innerText = range.value
+    })
+    // document.getElementById('fullname').addEventListener('focus', ()=>{
+        
+    // })
+    let change = (val) => {
+        console.log(val)
+    }
+</script>
+
 </body>
 </html>
